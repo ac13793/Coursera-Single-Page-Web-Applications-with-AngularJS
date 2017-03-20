@@ -25,23 +25,23 @@
         var toBuy = [
             {
                 name: "Cookies",
-                quatity: "10"
+                quantity: "10"
             },
             {
                 name: "Chips",
-                quatity: "5"
+                quantity: "5"
             },
             {
                 name: "Pepto Bismol",
-                quatity: "10"
+                quantity: "10"
             },
             {
                 name: "Water bottles",
-                quatity: "10"
+                quantity: "10"
             },
             {
                 name: "Cup cake",
-                quatity: "10"
+                quantity: "10"
             }
         ];
         var bought = [];
