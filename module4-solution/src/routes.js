@@ -31,16 +31,13 @@
             }
         })
         .state('itemDetail', {
-            url: '/category-detail/{categoryShortName}',
+            url: '/category-detail/{shortName}',
             templateUrl: 'src/templates/main-items.template.html',
-            controller: 'ItemDetailController as itemDetail',
+            controller: 'ItemDetailController as item',
             resolve: {
-                items: ['MenuDataService', function (MenuDataService) {
-                    return MenuDataService.getItemsForCategory();
+                items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+                    return MenuDataService.getItemsForCategory($stateParams.shortName);
                 }]
-            },
-            params: {
-                categoryShortName: null
             }
         });
     }
