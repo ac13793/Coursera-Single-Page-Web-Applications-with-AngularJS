@@ -7,7 +7,7 @@
 
 
     MenuDataService.$inject = ['$http', 'GetCategoryUrl']
-    function MenuDataService($q, $timeout) {
+    function MenuDataService($http, GetCategoryUrl) {
         var service = this;
 
         service.getAllCategories = function () {
@@ -15,7 +15,7 @@
                 method: "GET",
                 url: GetCategoryUrl,
             }).then(function (result) {
-                return result;
+                return result.data.menu_items;
             });
         };
         
@@ -24,7 +24,7 @@
                 method: "GET",
                 url: (GetCategoryUrl + "?category=" + categoryShortName),
             }).then(function (result) {
-                return result;
+                return result.data.menu_items;
             });
         };
     }
