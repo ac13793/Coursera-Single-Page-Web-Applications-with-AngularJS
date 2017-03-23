@@ -1,0 +1,36 @@
+<h2>My info</h2>
+<h2>{{$ctrl.userinfo.test}}</h2>
+<table class="table" ng-show="$ctrl.userinfo.isInfoExist">
+    <tbody>
+        <tr>
+            <td>First name: </td>
+            <td>{{$ctrl.userinfo.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last name: </td>
+            <td>{{$ctrl.userinfo.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Email address: </td>
+            <td>{{$ctrl.userinfo.emailAddress}}</td>
+        </tr>
+        <tr>
+            <td>Phone number: </td>
+            <td>{{$ctrl.userinfo.phoneNumber}}</td>
+        </tr>
+        <tr>
+            <td>Favorite dish: </td>
+            <td>
+                {{$ctrl.userinfo.favoriteDish}}
+                <a ui-sref="public.menuitems({category: $ctrl.userinfo.short_name})">
+                    <div class="category-tile">
+                        <img width="200" height="200" ng-src="images/menu/{{$ctrl.userinfo.short_name}}/{{$ctrl.userinfo.short_name}}.jpg" alt="{{$ctrl.userinfo.name}}">
+                        <span>{{$ctrl.userinfo.name}}</span>
+                    </div>
+                </a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div ng-show="!$ctrl.userinfo.isInfoExist">Not Signed Up Yet. <a ui-sref="public.signup">Sign up</a> Now!</div>

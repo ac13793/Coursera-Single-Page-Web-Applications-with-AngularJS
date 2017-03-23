@@ -1,0 +1,36 @@
+<h2 class="modal-title">Sign up</h2>
+<form name="signUpForm" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : signUpForm.firstName.$error.required && !signUpForm.firstName.$pristine }">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" ng-model="$ctrl.firstName" required>
+        <span ng-show="signUpForm.firstName.$error.required && !signUpForm.firstName.$pristine" class="help-block">Your First name is required.</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : signUpForm.lastName.$error.required && !signUpForm.lastName.$pristine }">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" ng-model="$ctrl.lastName" required>
+        <span ng-show="signUpForm.lastName.$error.required && !signUpForm.lastName.$pristine" class="help-block">Your Last name is required.</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : signUpForm.emailAddress.$error.required && !signUpForm.emailAddress.$pristine }">
+        <label for="emailAddress">Email address</label>
+        <input type="email" class="form-control" name="emailAddress" id="emailAddress" placeholder="Email" ng-model="$ctrl.emailAddress" required>
+        <span ng-show="signUpForm.emailAddress.$error.required && !signUpForm.emailAddress.$pristine" class="help-block">Your email address is invalid.</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : signUpForm.phoneNumber.$error.maxlength && !signUpForm.phoneNumber.$pristine }">
+        <label for="phoneNumber">Phone number</label>
+        <div class="input-group">
+            <div class="input-group-addon">+91</div>
+            <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone number" ng-model="$ctrl.phoneNumber" ng-maxlength="10" ng-minlength="10" required>
+            <span ng-show="signUpForm.phoneNumber.$error.maxlength && !signUpForm.phoneNumber.$pristine" class="help-block">Your phone number must have 10 digits.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="menuNumber">Menu number</label>
+        <input type="text" class="form-control" id="menuNumber" placeholder="Menu number e.g. L" ng-keyup="$ctrl.checkDishExist()" ng-model="$ctrl.menuNumber">
+        <span class="text-danger" ng-show="$ctrl.isErrorExist">No such menu number exists.</span>
+        <span class="text-success" ng-show="$ctrl.menuNumberExist">Great!! Your menu number exist.</span>
+    </div>
+    <button type="button" class="btn btn-primary" ng-disabled="signUpForm.$invalid && !signUpForm.isErrorExist" ng-click="$ctrl.submitSignUpForm()">Submit</button>
+</form><br />
+<div class="alert alert-success alert-dismissable" id="activitySuccessText" ng-show="$ctrl.isItemExist">
+    Your information has been saved.
+</div>
