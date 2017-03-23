@@ -28,8 +28,10 @@ function SignUpModelController(MenuService) {
                         function (result) {
                             if (!(result.category)) {
                                 signup.isErrorExist = true;
+                                signup.menuNumberExist = false;
                             } else {
                                 signup.menuNumberExist = true;
+                                signup.isErrorExist = false;
                             }
                         }
                     );
